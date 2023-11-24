@@ -1,16 +1,15 @@
-export const App = () => {
+import PageTitle from './PageTitle/PageTitle';
+import EventBoard from './EventBoard/EventBoard';
+
+import upcomingEvents from '../upcoming-events.json';
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <PageTitle text="24th core worlds coalition conference" />
+      <EventBoard events={upcomingEvents} />
     </div>
   );
 };
+
+export default App;
