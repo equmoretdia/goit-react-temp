@@ -8,4 +8,4 @@ const formatEventDuration = (start, end) => {
   return formatDistanceStrict(Date.parse(start), Date.parse(end));
 };
 
-export default { formatEventStart, formatEventDuration };
+export { formatEventStart, formatEventDuration };

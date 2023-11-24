@@ -6,12 +6,12 @@ import {
   FaCalendarAlt,
   FaClock,
 } from 'react-icons/fa';
-import format from '../../utils/time-parser';
+import { formatEventStart, formatEventDuration } from '../../utils/time-parser';
 import iconSize from '../../constants/iconSize';
 
 const Event = ({ name, location, speaker, type, start, end }) => {
-  const formattedEventStart = format.formatEventStart(start);
-  const duration = format.formatEventDuration(start, end);
+  const formattedEventStart = formatEventStart(start);
+  const duration = formatEventDuration(start, end);
   return (
     <li className={css.event}>
       <h2 className={css.title}>{name}</h2>
@@ -55,4 +55,4 @@ Event.propTypes = {
 
 export default Event;
 
-console.log(css);
+// console.log(css);
