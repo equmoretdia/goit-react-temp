@@ -1,0 +1,65 @@
+.event {
+  position: relative;
+  flex-basis: calc((100% - 2 * 50px) / 3);
+  border: 1px solid #676767;
+  border-radius: 16px;
+  background-color: #fffefd;
+  max-width: 250px;
+  height: 350px;
+  padding: 10px;
+}
+
+.title {
+  padding-left: 15px;
+  padding-bottom: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #555555;
+}
+
+.info {
+  display: flex;
+  gap: 7.5px;
+  align-items: center;
+  padding-left: 15px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: inherit;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #555555;
+}
+
+.icon {
+  display: block;
+  margin-right: 8px;
+  color: #555555;
+}
+
+.chip {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 8px 8px;
+  border-radius: 16px;
+  text-transform: uppercase;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.free {
+  background-color: #219421;
+}
+
+.paid {
+  background-color: #da1d0f;
+}
+
+.vip {
+  background-color: #092bd7;
+}
