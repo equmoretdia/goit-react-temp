@@ -1,0 +1,15 @@
+.red {
+  color: #ff2323;
+}
+
+.bgBlue {
+  background-color: #a6a6e8;
+}
+
+.active {
+  text-align: center;
+}
+
+.passive {
+  text-align: start;
+}
