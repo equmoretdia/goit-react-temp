@@ -1,11 +1,14 @@
-import Card from './components/Card';
-import Card2 from './components/Card2';
+import Card from './components/Card/Card';
+import Card2 from './components/Card2/Card2';
+import Container from './components/Container/Container';
 
 const App = () => {
   return (
     <>
-      <Card />
-      <Card2 />
+      <Container>
+        <Card />
+      </Container>
+      <Container children={<Card2 />} />
     </>
   );
 };
