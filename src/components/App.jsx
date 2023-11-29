@@ -1,14 +1,13 @@
-import PageTitle from './PageTitle/PageTitle';
-import EventBoard from './EventBoard/EventBoard';
-
-import upcomingEvents from '../upcoming-events.json';
+import React from 'react';
+import Counter from './Counter/Counter';
+import Dropdown from './Dropdown/Dropdown';
 
 const App = () => {
   return (
-    <div>
-      <PageTitle text="24th core worlds coalition conference" />
-      <EventBoard events={upcomingEvents} />
-    </div>
+    <>
+      <Counter />
+      <Dropdown />
+    </>
   );
 };
 
