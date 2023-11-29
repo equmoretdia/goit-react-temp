@@ -1,5 +1,11 @@
+import React from 'react';
+import Counter from './Counter/Counter';
+
 const App = () => {
-  return <></>;
+  <>
+    <h1>Component state</h1>
+    <Counter />
+  </>;
 };
 
 export default App;
