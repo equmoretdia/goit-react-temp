@@ -1,0 +1,37 @@
+[
+  {
+    "id": "id-1",
+    "text": "Learn React basics",
+    "completed": false
+  },
+  {
+    "id": "id-2",
+    "text": "Learn React Router",
+    "completed": false
+  },
+  {
+    "id": "id-3",
+    "text": "Learn Redux",
+    "completed": false
+  },
+  {
+    "id": "id-4",
+    "text": "Explore Node.js fundamentals",
+    "completed": false
+  },
+  {
+    "id": "id-5",
+    "text": "Build a RESTful API with Express",
+    "completed": false
+  },
+  {
+    "id": "id-6",
+    "text": "Learn about WebSocket communication",
+    "completed": false
+  },
+  {
+    "id": "id-7",
+    "text": "Build a full-stack React app",
+    "completed": false
+  }
+]
