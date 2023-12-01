@@ -1,11 +1,16 @@
 import React from 'react';
 import Counter from './Counter/Counter';
 import Dropdown from './Dropdown/Dropdown';
+import Container from './ToDoList/Container';
+import ToDoEditor from './ToDoList/ToDoEditor';
+import ToDoFilter from './ToDoList/ToDoFilter';
 import ToDoList from './ToDoList';
 import ColorPicker from './ColorPicker';
 import Form from './Form';
 // short roots for ToDoList, ColorPicker and Form
 // due to re-export (index.js in component folder)
+
+import { nanoid } from 'nanoid/non-secure';
 
 import colors from 'data/colors.json';
 import initialToDos from 'data/todos.json';
@@ -13,6 +18,20 @@ import initialToDos from 'data/todos.json';
 class App extends React.Component {
   state = {
     todos: initialToDos,
+    filter: '',
+  };
+
+  addTodo = text => {
+    console.log(text);
+    const todo = {
+      id: nanoid(),
+      text,
+      completed: false,
+    };
+
+    this.setState(({ todos }) => ({
+      todos: [todo, ...todos],
+    }));
   };
 
   deleteTodo = todoId => {
@@ -45,32 +64,52 @@ class App extends React.Component {
     }));
   };
 
+  changeFilter = event => {
+    this.setState({ filter: event.currentTarget.value });
+  };
+
+  getVisibleTodos = () => {
+    const { todos, filter } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    return todos.filter(todo =>
+      todo.text.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  getCompletedTodosNumber = () => {
+    const { todos } = this.state;
+    return todos.reduce((acc, todo) => (todo.completed ? acc + 1 : acc), 0);
+  };
+
   handleFormSubmit = data => {
     console.log(data);
   };
 
   render() {
-    const { todos } = this.state;
+    const { todos, filter } = this.state;
     const totalTodosNumber = todos.length;
-    const completedTodosNumber = todos.reduce(
-      (acc, todo) => (todo.completed ? acc + 1 : acc),
-      0
-    );
+    const completedTodosNumber = this.getCompletedTodosNumber();
+    const visibleTodos = this.getVisibleTodos();
+
     return (
       <>
         <Counter />
         <Dropdown />
         <ColorPicker options={colors} />
-        <div>
-          <span>Total ToDo:{totalTodosNumber}</span>
-          <span>Completed ToDo:{completedTodosNumber}</span>
-          <span>Remains ToDo:{totalTodosNumber - completedTodosNumber}</span>
-        </div>
-        <ToDoList
-          todos={todos}
-          onDeleteTodo={this.deleteTodo}
-          onToggleCompleted={this.toggleCompleted}
-        />
+        <Container>
+          <div>
+            <span>Total ToDo:{totalTodosNumber}</span>
+            <span>Completed ToDo:{completedTodosNumber}</span>
+            <span>Remains ToDo:{totalTodosNumber - completedTodosNumber}</span>
+          </div>
+          <ToDoEditor onSubmit={this.addTodo} />
+          <ToDoFilter value={filter} onChange={this.changeFilter} />
+          <ToDoList
+            todos={visibleTodos}
+            onDeleteTodo={this.deleteTodo}
+            onToggleCompleted={this.toggleCompleted}
+          />
+        </Container>
         <Form onSubmit={this.handleFormSubmit} />
       </>
     );
