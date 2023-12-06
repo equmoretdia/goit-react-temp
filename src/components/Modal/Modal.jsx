@@ -21,9 +21,17 @@ class Modal extends Component {
     }
   };
 
+  handleBackdropClick = e => {
+    console.log('e.target =>', e.target); //where the click actually happen
+    console.log('e.currentTarget =>', e.currentTarget); //where it bubbled
+    if (e.target === e.currentTarget) {
+      this.props.onClose();
+    }
+  };
+
   render() {
     return createPortal(
-      <div className={css.backdrop}>
+      <div className={css.backdrop} onClick={this.handleBackdropClick}>
         <div className={css.content}>{this.props.children}</div>
       </div>,
       modalRoot
