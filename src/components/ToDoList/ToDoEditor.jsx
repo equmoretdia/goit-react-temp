@@ -1,4 +1,5 @@
 import React from 'react';
+import css from './ToDoEditor.module.css';
 
 class ToDoEditor extends React.Component {
   state = {
@@ -18,13 +19,13 @@ class ToDoEditor extends React.Component {
 
   render() {
     return (
-      <form className="editor" onSubmit={this.handleSubmit}>
+      <form className={css.form} onSubmit={this.handleSubmit}>
         <textarea
+          className={css.textarea}
           value={this.state.message}
-          className="textarea"
           onChange={this.handleChange}
         ></textarea>
-        <button type="submit" className="button">
+        <button type="submit" className={css.button}>
           Add
         </button>
       </form>

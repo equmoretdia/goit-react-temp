@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Controls from './Controls';
-import css from './Couneter.module.css';
+import css from './Counter.module.css';
 
 class Counter extends React.Component {
   //   constructor() {

@@ -7,6 +7,7 @@ import ToDoFilter from './ToDoList/ToDoFilter';
 import ToDoList from './ToDoList';
 import ColorPicker from './ColorPicker';
 import Form from './Form';
+import css from './App.module.css';
 // short roots for ToDoList, ColorPicker and Form
 // due to re-export (index.js in component folder)
 
@@ -98,9 +99,13 @@ class App extends React.Component {
         <ColorPicker options={colors} />
         <Container>
           <div>
-            <span>Total ToDo:{totalTodosNumber}</span>
-            <span>Completed ToDo:{completedTodosNumber}</span>
-            <span>Remains ToDo:{totalTodosNumber - completedTodosNumber}</span>
+            <span className={css.span}>Total ToDo: {totalTodosNumber}</span>
+            <span className={css.span}>
+              Completed ToDo: {completedTodosNumber}
+            </span>
+            <span className={css.span}>
+              Remains ToDo: {totalTodosNumber - completedTodosNumber}
+            </span>
           </div>
           <ToDoEditor onSubmit={this.addTodo} />
           <ToDoFilter value={filter} onChange={this.changeFilter} />

@@ -1,5 +1,5 @@
 import React from 'react';
-// import css from './Form.module.css';
+import css from './Form.module.css';
 
 class Form extends React.Component {
   state = {
@@ -50,27 +50,29 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="">
+      <form className={css.form} onSubmit={this.handleSubmit}>
+        <label className={css.label} htmlFor="">
           Name
           <input
+            className={css.input}
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
           />
         </label>
-        <label htmlFor="">
+        <label className={css.label} htmlFor="">
           Mail
           <input
+            className={css.input}
             type="mail"
             name="mail"
             value={this.state.mail}
             onChange={this.handleChange}
           />
         </label>
-        <p>Your SW development experience</p>
-        <label htmlFor="">
+        <p className={css.text}>Your SW development experience</p>
+        <label className={css.radio} htmlFor="">
           Junior
           <input
             type="radio"
@@ -80,7 +82,7 @@ class Form extends React.Component {
             checked={this.state.experience === 'junior'}
           />
         </label>
-        <label htmlFor="">
+        <label className={css.radio} htmlFor="">
           Middle
           <input
             type="radio"
@@ -90,7 +92,7 @@ class Form extends React.Component {
             checked={this.state.experience === 'middle'}
           />
         </label>
-        <label htmlFor="">
+        <label className={css.radio} htmlFor="">
           Senior
           <input
             type="radio"
@@ -101,7 +103,7 @@ class Form extends React.Component {
           />
         </label>
         <br />
-        <label htmlFor="">
+        <label className={css.checkbox} htmlFor="">
           <input
             type="checkbox"
             name="license"
@@ -110,7 +112,11 @@ class Form extends React.Component {
           />
           Agree with license conditions
         </label>
-        <button type="submit" disabled={!this.state.license}>
+        <button
+          className={css.button}
+          type="submit"
+          disabled={!this.state.license}
+        >
           Submit
         </button>
       </form>
