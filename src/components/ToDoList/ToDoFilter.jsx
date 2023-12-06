@@ -1,10 +1,16 @@
 import React from 'react';
+import css from './ToDoFilter.module.css';
 
 const ToDoFilter = ({ value, onChange }) => {
   return (
-    <label>
+    <label className={css.label}>
       Filter
-      <input type="text" value={value} onChange={onChange} />
+      <input
+        className={css.input}
+        type="text"
+        value={value}
+        onChange={onChange}
+      />
     </label>
   );
 };
