@@ -138,7 +138,7 @@ class App extends React.Component {
           </button>
         </div>
         {showModal && (
-          <Modal>
+          <Modal onClose={this.toggleModal}>
             <h2 className={css.title}>Hi, this is content of Modal window</h2>
             <p className={css.span}>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum
