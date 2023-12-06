@@ -1,12 +1,13 @@
 import React from 'react';
 import Counter from './Counter/Counter';
 import Dropdown from './Dropdown/Dropdown';
-import Container from './ToDoList/Container';
-import ToDoEditor from './ToDoList/ToDoEditor';
-import ToDoFilter from './ToDoList/ToDoFilter';
-import ToDoList from './ToDoList';
+import Container from './ToDo/Container';
+import ToDoEditor from './ToDo/ToDoEditor';
+import ToDoFilter from './ToDo/ToDoFilter';
+import ToDoList from './ToDo';
 import ColorPicker from './ColorPicker';
 import Form from './Form';
+import Modal from './Modal';
 import css from './App.module.css';
 // short roots for ToDoList, ColorPicker and Form
 // due to re-export (index.js in component folder)
@@ -20,7 +21,12 @@ class App extends React.Component {
   state = {
     todos: initialToDos,
     filter: '',
+    showModal: false,
   };
+
+  componentDidMount() {}
+
+  componentDidUpdate() {}
 
   addTodo = text => {
     console.log(text);
@@ -86,8 +92,14 @@ class App extends React.Component {
     console.log(data);
   };
 
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
+  };
+
   render() {
-    const { todos, filter } = this.state;
+    const { todos, filter, showModal } = this.state;
     const totalTodosNumber = todos.length;
     const completedTodosNumber = this.getCompletedTodosNumber();
     const visibleTodos = this.getVisibleTodos();
@@ -116,6 +128,33 @@ class App extends React.Component {
           />
         </Container>
         <Form onSubmit={this.handleFormSubmit} />
+        <div className={css.div}>
+          <button
+            className={css.button}
+            type="button"
+            onClick={this.toggleModal}
+          >
+            Open Modal
+          </button>
+        </div>
+        {showModal && (
+          <Modal>
+            <h2 className={css.title}>Hi, this is content of Modal window</h2>
+            <p className={css.span}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum
+              rem expedita, optio suscipit aliquid numquam at eos excepturi
+              doloremque delectus saepe libero corporis? Deleniti ex tenetur
+              inventore, error animi perferendis.
+            </p>
+            <button
+              className={css.button}
+              type="button"
+              onClick={this.toggleModal}
+            >
+              Close Modal
+            </button>
+          </Modal>
+        )}
       </>
     );
   }
