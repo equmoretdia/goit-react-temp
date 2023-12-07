@@ -16,7 +16,7 @@ export default class App extends Component {
         .then(res => res.json())
         .then(pokemon => this.setState({ pokemon }))
         .finally(() => this.setState({ loading: false }));
-    }, 1000);
+    }, 1500);
   }
 
   render() {
