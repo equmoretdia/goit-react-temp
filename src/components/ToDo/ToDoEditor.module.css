@@ -1,0 +1,39 @@
+.form {
+  max-width: 500px;
+  padding: 20px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.textarea {
+  display: block;
+  width: 91%;
+  height: 100px;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 1.33;
+  font-weight: inherit;
+  font-family: inherit;
+  color: #a46303;
+  border: 3px solid #a4630364;
+  border-radius: 12px;
+}
+
+.button {
+  display: inline-block;
+  width: 105px;
+  margin: 0 0 0 190px;
+  padding: 15px;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.33;
+  color: #f7e4c6;
+  cursor: pointer;
+  border: 3px solid #a46303;
+  border-radius: 16px;
+  background-color: #de8705;
+}
