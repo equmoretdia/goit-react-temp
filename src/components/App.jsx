@@ -8,6 +8,7 @@ import ToDoList from './ToDo';
 import ColorPicker from './ColorPicker';
 import Form from './Form';
 import Modal from './Modal';
+import Clock from './Clock';
 import css from './App.module.css';
 // short roots for ToDoList, ColorPicker and Form
 // due to re-export (index.js in component folder)
@@ -22,6 +23,7 @@ class App extends React.Component {
     todos: initialToDos,
     filter: '',
     showModal: false,
+    showClock: false,
   };
 
   componentDidMount() {}
@@ -98,8 +100,14 @@ class App extends React.Component {
     }));
   };
 
+  toggleClock = () => {
+    this.setState(({ showClock }) => ({
+      showClock: !showClock,
+    }));
+  };
+
   render() {
-    const { todos, filter, showModal } = this.state;
+    const { todos, filter, showModal, showClock } = this.state;
     const totalTodosNumber = todos.length;
     const completedTodosNumber = this.getCompletedTodosNumber();
     const visibleTodos = this.getVisibleTodos();
@@ -155,6 +163,16 @@ class App extends React.Component {
             </button>
           </Modal>
         )}
+        <div className={css.div}>
+          <button
+            className={css.button}
+            type="button"
+            onClick={this.toggleClock}
+          >
+            {showClock ? 'Hide Clock' : 'Show Clock'}
+          </button>
+          {showClock && <Clock />}
+        </div>
       </>
     );
   }
