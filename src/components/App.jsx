@@ -10,6 +10,10 @@ import Form from './Form';
 import Modal from './Modal';
 import Clock from './Clock';
 import Tabs from './Tabs/Tabs';
+import IconButton from './IconButton/IconButton';
+
+import { ReactComponent as AddIcon } from '../icons/add.svg';
+
 import css from './App.module.css';
 // short roots for ToDoList, ColorPicker and Form
 // due to re-export (index.js in component folder)
@@ -176,6 +180,14 @@ class App extends React.Component {
           {showClock && <Clock />}
         </div>
         <Tabs items={tabs} />
+        <div className={css.div}>
+          <p className={css.span}>
+            This is icon-button, it is also used to open modal window
+          </p>
+          <IconButton onClick={this.toggleModal} aria-label="1">
+            <AddIcon width="60" height="60" fill="#a46303" />
+          </IconButton>
+        </div>
       </>
     );
   }
