@@ -9,6 +9,7 @@ import ColorPicker from './ColorPicker';
 import Form from './Form';
 import Modal from './Modal';
 import Clock from './Clock';
+import Tabs from './Tabs/Tabs';
 import css from './App.module.css';
 // short roots for ToDoList, ColorPicker and Form
 // due to re-export (index.js in component folder)
@@ -17,6 +18,7 @@ import { nanoid } from 'nanoid/non-secure';
 
 import colors from 'data/colors.json';
 import initialToDos from 'data/todos.json';
+import tabs from 'data/tabs.json';
 
 class App extends React.Component {
   state = {
@@ -173,6 +175,7 @@ class App extends React.Component {
           </button>
           {showClock && <Clock />}
         </div>
+        <Tabs items={tabs} />
       </>
     );
   }
