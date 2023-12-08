@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PokemonForm from './PokemonForm/PokemonForm';
+import PokemonInfo from './PokemonInfo/PokemonInfo';
 // import css from './App.module.css';
 
 export default class App extends Component {
@@ -14,10 +15,12 @@ export default class App extends Component {
   };
 
   render() {
-    // const { pokemon, loading } = this.state;
+    const { pokemonName } = this.state;
     return (
       <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
         <PokemonForm onSubmit={this.handleFormSubmit} />
+        <PokemonInfo pokemonName={pokemonName} />
+
         <ToastContainer
           autoClose={3000}
           hideProgressBar={false}
