@@ -51,6 +51,7 @@ export default function SignupForm() {
       <label className={css.label}>
         <span>Email</span>
         <input
+          className={css.input}
           type="email"
           name="email"
           //   onChange={handleEmailChange}
@@ -63,6 +64,7 @@ export default function SignupForm() {
         {' '}
         <span>Password</span>
         <input
+          className={css.input}
           type="password"
           name="password"
           //   onChange={handlePasswordChange}
