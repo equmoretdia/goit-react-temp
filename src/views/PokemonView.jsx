@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import PokemonForm from './PokemonForm/PokemonForm';
-import PokemonInfo from './PokemonInfo/PokemonInfo';
+import PokemonForm from '../components/PokemonForm/PokemonForm';
+import PokemonInfo from '../components/PokemonInfo/PokemonInfo';
 import css from './PokemonView.module.css';
 
 export default function PokemonView() {
