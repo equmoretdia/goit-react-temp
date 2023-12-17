@@ -1,20 +1,5 @@
-import { useState, useEffect } from 'react';
+import useLocalStorage from '../../hooks/useLocalStorage';
 import css from './SignupForm.module.css';
-
-const useLocalStorage = (
-  key,
-  defaultValue,
-  serialize = JSON.stringify,
-  deserialize = JSON.parse
-) => {
-  const [state, setState] = useState(() => {
-    return deserialize(window.localStorage.getItem(key)) ?? defaultValue;
-  });
-  useEffect(() => {
-    window.localStorage.setItem(key, serialize(state));
-  }, [key, state, serialize]);
-  return [state, setState];
-};
 
 export default function SignupForm() {
   //   const [inputState] = useState('');

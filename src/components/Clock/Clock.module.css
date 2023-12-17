@@ -1,4 +1,7 @@
-.counter {
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 500px;
   padding: 40px;
   margin: 0 auto 60px;
@@ -9,18 +12,12 @@
   border-radius: 16px;
 }
 
-.header {
+.text {
   margin-bottom: 20px;
   text-align: center;
   font-size: 36px;
   line-height: 1.33;
   color: #a46303;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
 }
 
 .button {
