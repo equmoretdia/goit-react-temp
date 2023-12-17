@@ -4,6 +4,7 @@ import SignupForm from './SignupForm/SignupForm';
 import ColorPicker from './ColorPicker/ColorPicker';
 import Counter from './Counter/Counter';
 import Clock from './Clock/Clock';
+import SkipEffectOnFirstRender from './SkipEffectOnFirstRender/SkipEffectOnFirstRender';
 
 import colors from 'data/colors.json';
 
@@ -15,6 +16,7 @@ export default function App() {
       <ColorPicker options={colors} />
       <Counter />
       <Clock />
+      <SkipEffectOnFirstRender />
     </>
   );
 }
