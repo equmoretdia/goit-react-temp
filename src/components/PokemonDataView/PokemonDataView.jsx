@@ -1,4 +1,5 @@
 import React from 'react';
+import css from './PokemonDataView.module.css';
 
 export default function PokemonDataView({ pokemon: { sprites, name, stats } }) {
   return (
@@ -8,10 +9,10 @@ export default function PokemonDataView({ pokemon: { sprites, name, stats } }) {
         width="240"
         alt={name}
       />
-      <h2>{name}</h2>
+      <h2 className={css.header}>{name}</h2>
       <ul>
         {stats.map(entry => (
-          <li key={entry.stat.name}>
+          <li className={css.stats} key={entry.stat.name}>
             {entry.stat.name}:{entry.base_stat}
           </li>
         ))}
