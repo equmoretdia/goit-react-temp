@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ImSearch } from 'react-icons/im';
+import css from './PokemonForm.module.css';
 
 const styles = { form: { marginBottom: 20 } };
 
@@ -25,14 +26,15 @@ export default function PokemonForm({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={styles.form}>
+    <form className={css.form} onSubmit={handleSubmit} style={styles.form}>
       <input
+        className={css.input}
         type="text"
         name="pokemonName"
         value={pokemonName}
         onChange={handleNameChange}
       />
-      <button type="submit">
+      <button className={css.button} type="submit">
         <ImSearch style={{ marginRight: 8 }} />
         Find
       </button>

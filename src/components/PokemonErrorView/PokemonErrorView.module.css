@@ -1,0 +1,8 @@
+.text {
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.33;
+  color: #a46303;
+}

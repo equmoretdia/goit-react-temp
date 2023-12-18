@@ -1,53 +1,53 @@
-import { Component } from 'react';
-import PokemonErrorView from 'components/PokemonErrorView/PokemonErrorView';
-import PokemonDataView from 'components/PokemonDataView/PokemonDataView';
-import PokemonPendingView from 'components/PokemonPendingView/PokemonPendingView';
+import { useState, useEffect } from 'react';
+import PokemonErrorView from '../PokemonErrorView/PokemonErrorView';
+import PokemonDataView from '../PokemonDataView/PokemonDataView';
+import PokemonPendingView from '../PokemonPendingView/PokemonPendingView';
 import PokemonApi from 'services/pokemon-api';
+import css from './PokemonInfo.module.css';
 
-export default class PokemonInfo extends Component {
-  state = {
-    pokemon: null,
-    error: null,
-    status: 'idle',
-  };
+const Status = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  RESOLVED: 'resolved',
+  REJECTED: 'rejected',
+};
 
-  componentDidUpdate(prevProps, prevState) {
-    const { pokemonName } = this.props;
-    if (prevProps.pokemonName !== pokemonName) {
-      //   console.log('prevProps.pokemonName: ', prevProps.pokemonName);
-      //   console.log('this.props.pokemonName: ', this.props.pokemonName);
-      console.log("pokemon's name is changed");
+export default function PokemonInfo({ pokemonName }) {
+  const [pokemon, setPokemon] = useState(null);
+  const [error, setError] = useState(null);
+  const [status, setStatus] = useState(Status.IDLE);
 
-      this.setState({ status: 'pending' });
-
-      //I use setTimout to delay the fetch, it is not needed in fact
-      //   setTimeout(() => {
-      PokemonApi(pokemonName)
-        // .then(console.log); // <= all info will be consoled
-        .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
-        .catch(error => this.setState({ error, status: 'rejected' }));
-      //   }, 5000);
+  useEffect(() => {
+    if (!pokemonName) {
+      //first render, pokemonName is not yet defined by user (undefined)
+      //thus fetch is not needed
+      return;
     }
+    setStatus(Status.PENDING);
+    PokemonApi(pokemonName)
+      .then(pokemon => {
+        setPokemon(pokemon);
+        setStatus(Status.RESOLVED);
+      })
+      .catch(error => {
+        setError(error);
+        setStatus(Status.REJECTED);
+      });
+  }, [pokemonName]);
+
+  if (status === Status.IDLE) {
+    return <div className={css.info}>Please fill in the pokemon name</div>;
   }
 
-  render() {
-    const { pokemon, error, status } = this.state;
-    const { pokemonName } = this.props;
+  if (status === Status.PENDING) {
+    return <PokemonPendingView pokemonName={pokemonName} />;
+  }
 
-    if (status === 'idle') {
-      return <div>Please fill in the pokemon name</div>;
-    }
+  if (status === Status.REJECTED) {
+    return <PokemonErrorView message={error.message} />;
+  }
 
-    if (status === 'pending') {
-      return <PokemonPendingView pokemonName={pokemonName} />;
-    }
-
-    if (status === 'rejected') {
-      return <PokemonErrorView message={error.message} />;
-    }
-
-    if (status === 'resolved') {
-      return <PokemonDataView pokemon={pokemon} />;
-    }
+  if (status === Status.RESOLVED) {
+    return <PokemonDataView pokemon={pokemon} />;
   }
 }
