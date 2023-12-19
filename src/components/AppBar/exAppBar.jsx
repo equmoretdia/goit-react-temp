@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
-import UserMenu from '../UserMenu/UserMenu';
+import UserMenu from '../UserMenu/Friends';
 import authContext from '../../contexts/auth/context';
 import css from './AppBar.module.css';
 
