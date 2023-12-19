@@ -4,8 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ImSearch } from 'react-icons/im';
 import css from './PokemonForm.module.css';
 
-const styles = { form: { marginBottom: 20 } };
-
 export default function PokemonForm({ onSubmit }) {
   const [pokemonName, setPokemonName] = useState('');
 
@@ -26,7 +24,7 @@ export default function PokemonForm({ onSubmit }) {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} style={styles.form}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
         className={css.input}
         type="text"
