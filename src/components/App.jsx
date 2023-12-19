@@ -6,6 +6,7 @@ import Counter from './Counter/Counter';
 import Clock from './Clock/Clock';
 import SkipEffectOnFirstRender from './SkipEffectOnFirstRender/SkipEffectOnFirstRender';
 import PokemonView from '../views/PokemonView';
+import Counter2 from './Counter2/Counter2';
 
 import colors from 'data/colors.json';
 
@@ -19,6 +20,7 @@ export default function App() {
       <Clock />
       <SkipEffectOnFirstRender />
       <PokemonView />
+      <Counter2 />
     </>
   );
 }
