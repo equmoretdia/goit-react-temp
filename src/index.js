@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom/client';
-import App from './components/App.jsx';
-import AuthProvider from './contexts/auth/Provider.jsx';
+import { BrowserRouter } from 'react-router-dom';
+import { App } from 'components/App';
 import './index.css';
 
 const root = document.getElementById('root');
 ReactDom.createRoot(root).render(
   <React.StrictMode>
-    <AuthProvider>
+    <BrowserRouter>
+      {/* <BrowserRouter basename="https://github.com/equmoretdia/goit-react-temp"> */}
       <App />
-    </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
