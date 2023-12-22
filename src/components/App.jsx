@@ -1,28 +1,20 @@
-import React from 'react';
-// import AppBar from './AppBar/AppBar';
-import SignupForm from './SignupForm/SignupForm';
-import ColorPicker from './ColorPicker/ColorPicker';
-import Counter from './Counter/Counter';
-import Clock from './Clock/Clock';
-import SkipEffectOnFirstRender from './SkipEffectOnFirstRender/SkipEffectOnFirstRender';
-import PokemonView from '../views/PokemonView';
-import Counter2 from './Counter2/Counter2';
-import Friends from './UserMenu/Friends';
+import Layout from './Layout';
+import Home from 'pages/Home';
+import Dogs from 'pages/Dogs';
+import Dog from 'pages/Dog';
+import { Routes, Route } from 'react-router-dom';
 
-import colors from 'data/colors.json';
-
-export default function App() {
+export const App = () => {
   return (
-    <>
-      {/* <AppBar /> */}
-      <SignupForm />
-      <ColorPicker options={colors} />
-      <Counter />
-      <Clock />
-      <SkipEffectOnFirstRender />
-      <PokemonView />
-      <Counter2 />
-      <Friends />
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* <Route path="/" element={<Home />}></Route>
+          <Route path="/dogs" element={<Dogs />}></Route>
+          <Route path="/dogs/:dogId" element={<Dog />}></Route> */}
+        <Route index element={<Home />}></Route>
+        <Route path="dogs" element={<Dogs />}></Route>
+        <Route path="dogs/:dogId" element={<Dog />}></Route>
+      </Route>
+    </Routes>
   );
-}
+};
