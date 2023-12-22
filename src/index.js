@@ -7,7 +7,7 @@ import './index.css';
 const root = document.getElementById('root');
 ReactDom.createRoot(root).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/goit-react-temp">
       {/* <BrowserRouter basename="https://github.com/equmoretdia/goit-react-temp"> */}
       <App />
     </BrowserRouter>
