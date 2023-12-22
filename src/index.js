@@ -7,7 +7,7 @@ import './index.css';
 const root = document.getElementById('root');
 ReactDom.createRoot(root).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/goit-react-temp">
       {/* <BrowserRouter basename="/goit-react-temp"> - for git pages*/}
       <App />
     </BrowserRouter>
