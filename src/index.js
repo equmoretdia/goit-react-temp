@@ -7,8 +7,8 @@ import './index.css';
 const root = document.getElementById('root');
 ReactDom.createRoot(root).render(
   <React.StrictMode>
-    <BrowserRouter basename="/goit-react-temp">
-      {/* <BrowserRouter basename="https://github.com/equmoretdia/goit-react-temp"> */}
+    <BrowserRouter>
+      {/* <BrowserRouter basename="/goit-react-temp"> - for git pages*/}
       <App />
     </BrowserRouter>
   </React.StrictMode>
