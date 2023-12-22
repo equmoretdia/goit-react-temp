@@ -20,7 +20,7 @@ const Dogs = () => {
           { id: 'dog-7', name: 'dog-7 name' },
         ].map(dog => {
           return (
-            <li>
+            <li key={dog.id}>
               {/* <Link to=string only thus following row approach 
               is good to avoid possible mistakes:  
               <Link key={dog.id} to={`${dog.id}`}></Link> */}
