@@ -1,6 +1,6 @@
 // import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
 
 const Dogs = () => {
   const [dogs, setDogs] = useState([
@@ -12,9 +12,15 @@ const Dogs = () => {
     { id: 'dog-6', name: 'dog-6 name' },
     { id: 'dog-7', name: 'dog-7 name' },
   ]);
+
+  const location = useLocation();
+  console.log(location);
+
   const [searchParams, setSearchParams] = useSearchParams();
   // console.log(searchParams.get('b')); //10 if localhost:3000/dogs?a=5&b=10
+
   console.log(setDogs);
+
   const dogId = searchParams.get('dogId') ?? '';
   console.log(dogId);
 
@@ -44,7 +50,7 @@ const Dogs = () => {
               {/* <Link to=string only thus following row approach 
               is good to avoid possible mistakes:  
               <Link key={dog.id} to={`${dog.id}`}></Link> */}
-              <Link key={dog.id} to={dog.id}>
+              <Link key={dog.id} to={dog.id} state={{ from: location }}>
                 {dog.name}
               </Link>
             </li>
