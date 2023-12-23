@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+// import { Suspense } from 'react';
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 
 const Dog = () => {
@@ -33,7 +34,9 @@ const Dog = () => {
           <Link to="gallery">Gallery</Link>
         </li>
       </ul>
+      {/* <Suspense fallback={<div>Subpage loading...</div>}> */}
       <Outlet />
+      {/* </Suspense> */}
     </div>
   );
 };
