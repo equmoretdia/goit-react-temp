@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import { createAction, createReducer } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
 
 const myValueSlice = createSlice({
   name: 'myValue',
@@ -33,4 +34,5 @@ export const store = configureStore({
   reducer: {
     myValue: myValueSlice.reducer,
   },
+  middleware: getDefaultMiddleware => [...getDefaultMiddleware(), logger],
 });
