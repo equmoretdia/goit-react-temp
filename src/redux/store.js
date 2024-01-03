@@ -1,22 +1,28 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import { createAction, createReducer } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+
+// // Following code has been added/moved to slice.js:
+import { myValueSlice } from './myValue/slice';
+// // import { createSlice } from '@reduxjs/toolkit';
+
 import logger from 'redux-logger';
 
-const myValueSlice = createSlice({
-  name: 'myValue',
-  initialState: 10,
-  reducers: {
-    increment(state, action) {
-      return state + action.payload;
-    },
-    decrement(state, action) {
-      return state - action.payload;
-    },
-  },
-});
+// // Following code has been moved to slice.js:
 
-console.log(myValueSlice);
+// // const myValueSlice = createSlice({
+// //   name: 'myValue',
+// //   initialState: 10,
+// //   reducers: {
+// //     increment(state, action) {
+// //       return state + action.payload;
+// //     },
+// //     decrement(state, action) {
+// //       return state - action.payload;
+// //     },
+// //   },
+// // });
+
+// console.log(myValueSlice);
 
 export const { increment, decrement } = myValueSlice.actions;
 
