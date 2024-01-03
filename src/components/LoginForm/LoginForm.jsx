@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { logIn, logOut } from '../../redux/userAuth/slice';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/userAuth/slice';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
