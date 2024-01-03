@@ -1,17 +1,20 @@
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AppNavigation } from '../AppNavigation/AppNavigation';
+import { UserMenu } from '../UserMenu/UserMenu';
 
 export const AppBar = () => {
+  const isLoggedIn = useSelector(state => state.userAuth.isLoggedIn);
   return (
-    <header>
-      <ul>
-        <li>
-          <NavLink to="/login">Log in</NavLink>
-        </li>
-        <li>
-          <NavLink to="/counter">Counter</NavLink>
-        </li>
-      </ul>
-      <br />
+    <header
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: 8,
+        borderBottom: '1px solid grey',
+      }}
+    >
+      <AppNavigation />
+      {isLoggedIn && <UserMenu />}
     </header>
   );
 };

@@ -6,12 +6,12 @@ export const Layout = () => {
   return (
     <div>
       <AppBar />
-      <main>
+      <main style={{ padding: 8 }}>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
       </main>
-      <footer></footer>
+      <footer style={{ padding: 8 }}></footer>
     </div>
   );
 };
