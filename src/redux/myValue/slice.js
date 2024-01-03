@@ -14,3 +14,5 @@ export const myValueSlice = createSlice({
 });
 
 console.log(myValueSlice);
+
+export const { increment, decrement } = myValueSlice.actions;

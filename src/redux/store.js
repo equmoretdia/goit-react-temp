@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 // // Following code has been added/moved to slice.js:
 import { myValueSlice } from './myValue/slice';
+import { userAuthSlice } from './userAuth/slice';
 // // import { createSlice } from '@reduxjs/toolkit';
 
 import logger from 'redux-logger';
@@ -24,7 +25,7 @@ import logger from 'redux-logger';
 
 // console.log(myValueSlice);
 
-export const { increment, decrement } = myValueSlice.actions;
+// export const { increment, decrement } = myValueSlice.actions;
 
 // export const increment = createAction('myCounter/increment');
 // export const decrement = createAction('myCounter/decrement');
@@ -39,6 +40,7 @@ export const { increment, decrement } = myValueSlice.actions;
 export const store = configureStore({
   reducer: {
     myValue: myValueSlice.reducer,
+    userAuth: userAuthSlice.reducer,
   },
   middleware: getDefaultMiddleware => [...getDefaultMiddleware(), logger],
 });
