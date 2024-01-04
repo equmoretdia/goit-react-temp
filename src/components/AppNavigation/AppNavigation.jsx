@@ -16,6 +16,9 @@ export const AppNavigation = () => {
             <NavLink to="/counter">Counter</NavLink>
           </li>
           <li>
+            <NavLink to="/clicker">Clicker</NavLink>
+          </li>
+          <li>
             <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
         </>

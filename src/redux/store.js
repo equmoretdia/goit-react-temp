@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 // // Following code has been added/moved to slice.js:
 import { myValueSlice } from './myValue/slice';
 import { userAuthSlice } from './userAuth/slice';
+import { myClickSlice } from './myClick/slice';
 // // import { createSlice } from '@reduxjs/toolkit';
 
 import logger from 'redux-logger';
@@ -41,6 +42,7 @@ export const store = configureStore({
   reducer: {
     myValue: myValueSlice.reducer,
     userAuth: userAuthSlice.reducer,
+    myClick: myClickSlice.reducer,
   },
   middleware: getDefaultMiddleware => [...getDefaultMiddleware(), logger],
 });
