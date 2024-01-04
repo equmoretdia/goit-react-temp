@@ -3,7 +3,7 @@ import { update } from '../../redux/myClick/slice';
 
 export const Clicker = () => {
   const dispatch = useDispatch();
-  const numberOfClicks = useSelector(state => state.myClick);
+  const numberOfClicks = useSelector(state => state.myClick.value);
   return (
     <div>
       <h2>Number of clicks: {numberOfClicks}</h2>

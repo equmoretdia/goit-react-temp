@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const myClickSlice = createSlice({
   name: 'myClick',
-  initialState: 0,
+  initialState: { value: 0 },
   reducers: {
     update(state, action) {
-      return state + action.payload;
+      state.value += action.payload;
     },
   },
 });
