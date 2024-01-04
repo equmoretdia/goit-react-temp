@@ -27,3 +27,7 @@ export const myClickReducer = persistReducer(
 );
 
 export const { update } = myClickSlice.actions;
+
+//Selectors
+
+export const myClickValue = state => state.myClick.value;

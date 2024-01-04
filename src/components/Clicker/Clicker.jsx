@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { update } from '../../redux/myClick/slice';
+import { update, myClickValue } from '../../redux/myClick/slice';
+import { useLogOutRedirect } from 'hooks/useLogOutRedirect';
 
 export const Clicker = () => {
+  useLogOutRedirect();
   const dispatch = useDispatch();
-  const numberOfClicks = useSelector(state => state.myClick.value);
+  const numberOfClicks = useSelector(myClickValue);
   return (
     <div>
       <h2>Number of clicks: {numberOfClicks}</h2>
