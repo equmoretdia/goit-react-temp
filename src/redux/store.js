@@ -1,27 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import { createAction, createReducer } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; //defaults to localStorage for web
+import { persistStore } from 'redux-persist';
 
 // // Following code has been added/moved to slice.js:
 import { myValueSlice } from './myValue/slice';
 import { userAuthSlice } from './userAuth/slice';
-import { myClickSlice } from './myClick/slice';
+import { myClickReducer } from './myClick/slice';
 // // import { createSlice } from '@reduxjs/toolkit';
 
 import logger from 'redux-logger';
-
-const persistConfig = {
-  key: 'myClick',
-  storage,
-  // whitelist: ['value'],
-  // blacklist: ['_persist'],
-};
-
-const persistedMyClickReducer = persistReducer(
-  persistConfig,
-  myClickSlice.reducer
-);
 
 // // Following code has been moved to slice.js:
 
@@ -56,7 +43,7 @@ export const store = configureStore({
   reducer: {
     myValue: myValueSlice.reducer,
     userAuth: userAuthSlice.reducer,
-    myClick: persistedMyClickReducer,
+    myClick: myClickReducer,
   },
   middleware: getDefaultMiddleware => [...getDefaultMiddleware(), logger],
 });

@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; //defaults to localStorage for web
 
-export const myClickSlice = createSlice({
+const myClickSlice = createSlice({
   name: 'myClick',
   initialState: { value: 0 },
   reducers: {
@@ -11,5 +13,17 @@ export const myClickSlice = createSlice({
 });
 
 console.log(myClickSlice);
+
+const persistConfig = {
+  key: 'myClick',
+  storage,
+  // whitelist: ['value'],
+  // blacklist: ['_persist'],
+};
+
+export const myClickReducer = persistReducer(
+  persistConfig,
+  myClickSlice.reducer
+);
 
 export const { update } = myClickSlice.actions;
