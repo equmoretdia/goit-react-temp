@@ -1,6 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import { createAction, createReducer } from '@reduxjs/toolkit';
-import { persistStore } from 'redux-persist';
+import {
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
 // // Following code has been added/moved to slice.js:
 import { myValueSlice } from './myValue/slice';
@@ -45,7 +53,14 @@ export const store = configureStore({
     userAuth: userAuthSlice.reducer,
     myClick: myClickReducer,
   },
-  middleware: getDefaultMiddleware => [...getDefaultMiddleware(), logger],
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+    logger,
+  ],
 });
 
 export const persistor = persistStore(store);
