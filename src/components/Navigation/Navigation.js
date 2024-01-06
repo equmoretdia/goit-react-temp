@@ -4,29 +4,19 @@ import styles from './Navigation.module.css';
 export default function Navigation() {
   return (
     <nav>
-      <NavLink
-        exact
-        to="/"
-        className={styles.link}
-        activeClassName={styles.activeLink}
-      >
-        Главная
+      <NavLink exact to="/" className={`${styles.link} ${styles.activeLink}`}>
+        Main
       </NavLink>
 
       {/* <NavLink
         to="/authors"
-        className={styles.link}
-        activeClassName={styles.activeLink}
+        className={`${styles.link} ${styles.activeLink}`}
       >
-        Авторы
+        Authors
       </NavLink> */}
 
-      <NavLink
-        to="/books"
-        className={styles.link}
-        activeClassName={styles.activeLink}
-      >
-        Книги
+      <NavLink to="/books" className={`${styles.link} ${styles.activeLink}`}>
+        Books
       </NavLink>
     </nav>
   );

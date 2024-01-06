@@ -3,25 +3,24 @@ import * as booksActions from './booksActions';
 // import { createReducer, combineReducers, createSlice } from '@reduxjs/toolkit';
 // import { fetchBooks } from './booksOperations';
 
-const entities = createReducer([], {
-  [booksActions.fetchBooksSuccess]: (_, action) => action.payload,
+const entities = createReducer([], builder => {
+  builder.addCase(
+    booksActions.fetchBooksSuccess,
+    (_, action) => action.payload
+  );
 });
 
-const isLoading = createReducer(false, {
-  [booksActions.fetchBooksRequest]: () => true,
-  [booksActions.fetchBooksSuccess]: () => false,
-  [booksActions.fetchBooksError]: () => false,
+const isLoading = createReducer(false, builder => {
+  builder
+    .addCase(booksActions.fetchBooksRequest, () => true)
+    .addCase(booksActions.fetchBooksSuccess, () => false)
+    .addCase(booksActions.fetchBooksError, () => false);
 });
 
-const error = createReducer(null, {
-  [booksActions.fetchBooksError]: (_, action) => action.payload,
-  [booksActions.fetchBooksRequest]: () => null,
-});
-
-export default combineReducers({
-  entities,
-  isLoading,
-  error,
+const error = createReducer(null, builder => {
+  builder
+    .addCase(booksActions.fetchBooksError, (_, action) => action.payload)
+    .addCase(booksActions.fetchBooksRequest, () => null);
 });
 
 // const entities = createReducer([], {
@@ -39,11 +38,11 @@ export default combineReducers({
 //   [fetchBooks.pending]: () => null,
 // });
 
-// export default combineReducers({
-//   entities,
-//   isLoading,
-//   error,
-// });
+export default combineReducers({
+  entities,
+  isLoading,
+  error,
+});
 
 // // 🔥 ИСПОЛЬЗУЕТ IMMER ДЛЯ МУТАЦИИ КОПИИ СОСТОЯНИЯ
 // // const booksSlice = createSlice({

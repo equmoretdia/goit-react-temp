@@ -24,29 +24,29 @@ export default function App() {
     <Container>
       <AppBar />
 
-      {/* <Suspense fallback={<h1>LOAD THE ROUTE...</h1>}>
-        <Routes>
-          <Route path="/" exact>
+      {/* <Suspense fallback={<h1>LOAD THE ROUTE...</h1>}> */}
+      {/* <Routes> */}
+      {/* <Route path="/" exact>
             <HomeView />
-          </Route>
+          </Route> */}
 
-          {/* <Route path="/authors">
+      {/* <Route path="/authors">
             <AuthorsView />
-          </Route> 
+          </Route>  */}
 
-          <Route path="/books" exact>
+      {/* <Route path="/books" exact>
             <BooksView />
-          </Route>
+          </Route> */}
 
-          <Route path="/books/:slug">
+      {/* <Route path="/books/:slug">
             <BookDetailsView />
-          </Route>
-
+          </Route> */}
+      {/* 
           <Route>
             <NotFoundView />
-          </Route>
-        </Routes>
-      </Suspense> */}
+          </Route> */}
+      {/* </Routes> */}
+      {/* </Suspense> */}
     </Container>
   );
 }
