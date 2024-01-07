@@ -9,12 +9,9 @@ export default function Navigation() {
         Main
       </NavLink>
 
-      {/* <NavLink
-        to="/authors"
-        className={`${styles.link} ${styles.activeLink}`}
-      >
+      <NavLink to="/authors" className={`${styles.link} ${styles.activeLink}`}>
         Authors
-      </NavLink> */}
+      </NavLink>
 
       <NavLink to="/books" className={`${styles.link} ${styles.activeLink}`}>
         Books
