@@ -25,19 +25,21 @@ import { fetchBooks } from './booksOperations';
 // });
 
 //2nd step: reducers with operations
-const entities = createReducer([], {
-  [fetchBooks.fulfilled]: (_, action) => action.payload,
+const entities = createReducer([], builder => {
+  builder.addCase(fetchBooks.fulfilled, (_, action) => action.payload);
 });
 
-const isLoading = createReducer(false, {
-  [fetchBooks.pending]: () => true,
-  [fetchBooks.fulfilled]: () => false,
-  [fetchBooks.rejected]: () => false,
+const isLoading = createReducer(false, builder => {
+  builder
+    .addCase(fetchBooks.pending, () => true)
+    .addCase(fetchBooks.fulfilled, () => false)
+    .addCase(fetchBooks.rejected, () => false);
 });
 
-const error = createReducer(null, {
-  [fetchBooks.rejected]: (_, action) => action.payload,
-  [fetchBooks.pending]: () => null,
+const error = createReducer(null, builder => {
+  builder
+    .addCase(fetchBooks.rejected, (_, action) => action.payload)
+    .addCase(fetchBooks.pending, () => null);
 });
 
 export default combineReducers({
