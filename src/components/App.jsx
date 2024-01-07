@@ -14,9 +14,9 @@ const BooksView = lazy(() =>
 const BookDetailsView = lazy(() =>
   import('../views/BookDetailsView' /* webpackChunkName: "book-view" */)
 );
-// const NotFoundView = lazy(() =>
-//   import('../views/NotFoundView.js' /* webpackChunkName: "404-view" */)
-// );
+const NotFoundView = lazy(() =>
+  import('../views/NotFoundView.js' /* webpackChunkName: "404-view" */)
+);
 
 export const App = () => {
   return (
@@ -26,7 +26,7 @@ export const App = () => {
         <Route path="authors" element={<AuthorsView />} />
         <Route path="books" element={<BooksView />} />
         <Route path="books/:slug" element={<BookDetailsView />} />
-        {/* <Route element={<NotFoundView />} /> */}
+        <Route path="*" element={<NotFoundView />} />
       </Route>
     </Routes>
   );
