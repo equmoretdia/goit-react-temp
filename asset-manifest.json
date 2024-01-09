@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/goit-react-temp/static/css/main.78b04b4d.css",
-    "main.js": "/goit-react-temp/static/js/main.dc334dcd.js",
+    "main.js": "/goit-react-temp/static/js/main.c58bd54e.js",
     "home-view.css": "/goit-react-temp/static/css/home-view.d5fbfe6a.chunk.css",
     "home-view.js": "/goit-react-temp/static/js/home-view.592f8fb8.chunk.js",
     "authors-view.css": "/goit-react-temp/static/css/authors-view.d5fbfe6a.chunk.css",
@@ -13,7 +13,7 @@
     "404-view.js": "/goit-react-temp/static/js/404-view.346fea34.chunk.js",
     "index.html": "/goit-react-temp/index.html",
     "main.78b04b4d.css.map": "/goit-react-temp/static/css/main.78b04b4d.css.map",
-    "main.dc334dcd.js.map": "/goit-react-temp/static/js/main.dc334dcd.js.map",
+    "main.c58bd54e.js.map": "/goit-react-temp/static/js/main.c58bd54e.js.map",
     "home-view.d5fbfe6a.chunk.css.map": "/goit-react-temp/static/css/home-view.d5fbfe6a.chunk.css.map",
     "home-view.592f8fb8.chunk.js.map": "/goit-react-temp/static/js/home-view.592f8fb8.chunk.js.map",
     "authors-view.d5fbfe6a.chunk.css.map": "/goit-react-temp/static/css/authors-view.d5fbfe6a.chunk.css.map",
@@ -26,6 +26,6 @@
   },
   "entrypoints": [
     "static/css/main.78b04b4d.css",
-    "static/js/main.dc334dcd.js"
+    "static/js/main.c58bd54e.js"
   ]
 }
