@@ -14,19 +14,21 @@ import * as bookShelfAPI from 'services/bookshelf-api';
 // };
 
 // 2nd step: createAsyncThunk
-export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
-  const books = await bookShelfAPI.fetchBooks();
-  return books;
-});
+// export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+//   const books = await bookShelfAPI.fetchBooks();
+//   return books;
+// });
 
-// export const fetchBooks = createAsyncThunk(
-//   'books/fetchBooks',
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const books = await bookShelfAPI.fetchBooks();
-//       return books;
-//     } catch (error) {
-//       return rejectWithValue(error);
-//     }
-//   }
-// );
+//2nd+ step, still createAsyncThunk, but with more error control (try/catch)
+// read more: https://redux-toolkit.js.org/api/createAsyncThunk#handling-thunk-errors
+export const fetchBooks = createAsyncThunk(
+  'books/fetchBooks',
+  async (_, { rejectWithValue }) => {
+    try {
+      const books = await bookShelfAPI.fetchBooks();
+      return books;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
