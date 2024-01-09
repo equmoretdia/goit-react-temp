@@ -32,3 +32,15 @@ export const fetchBooks = createAsyncThunk(
     }
   }
 );
+
+export const fetchBookById = createAsyncThunk(
+  'books/fetchBookById',
+  async (bookId, { rejectWithValue }) => {
+    try {
+      const book = await bookShelfAPI.fetchBookById(bookId);
+      return book;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
