@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/404-view.ba30134e.chunk.js","mappings":"iMAAe,SAASA,IACtB,OAAOC,EAAAA,EAAAA,KAAA,MAAAC,SAAI,6BACb,C","sources":["views/NotFoundView.js"],"sourcesContent":["export default function NotFoundView() {\n  return <h1>404 Page is not found... </h1>;\n}\n"],"names":["NotFoundView","_jsx","children"],"sourceRoot":""}
