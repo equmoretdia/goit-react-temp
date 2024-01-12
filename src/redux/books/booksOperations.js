@@ -26,8 +26,10 @@ export const fetchBooks = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const books = await bookShelfAPI.fetchBooks();
-      return books;
+      console.log(books);
+      return books.data;
     } catch (error) {
+      console.log(error);
       return rejectWithValue(error);
     }
   }
@@ -40,6 +42,7 @@ export const fetchBookById = createAsyncThunk(
       const book = await bookShelfAPI.fetchBookById(bookId);
       return book;
     } catch (error) {
+      console.log(error);
       return rejectWithValue(error);
     }
   }
