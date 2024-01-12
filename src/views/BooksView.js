@@ -1,11 +1,16 @@
 import { useEffect } from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // // // import { Link, useRouteMatch, useLocation } from 'react-router-dom';
 import slugify from 'slugify';
-import * as bookShelfAPI from 'services/bookshelf-api';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { booksOperations, booksSelectors } from 'redux/books';
+// import * as bookShelfAPI from 'services/bookshelf-api';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBooks } from '../redux/books/booksOperations';
+import {
+  selectBooks,
+  selectIsLoading,
+  selectError,
+} from '../redux/books/booksSelectors';
 // // import * as booksOperations from 'redux/books/booksOperations';
 import PageHeading from 'components/PageHeading/PageHeading';
 
@@ -16,23 +21,24 @@ const BooksView = () => {
   const { pathname } = location;
   // //   const { url } = useRouteMatch();
 
-  const [books, setBooks] = useState([]);
-  //   const dispatch = useDispatch();
+  // const [books, setBooks] = useState([]);
+  const dispatch = useDispatch();
   //   // const books = useSelector(state => state.books.entities);
-  //   const books = useSelector(booksSelectors.getBooks);
-  console.log(books); //delete me
+  const books = useSelector(selectBooks);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  //   // console.log(books); //delete me
   //   // useEffect(() => {
   //   //   bookShelfAPI.fetchBooks().then(setBooks);
   //   // }, []);
 
   useEffect(() => {
-    bookShelfAPI.fetchBooks().then(setBooks);
-  }, []);
-
-  //   useEffect(() => dispatch(booksOperations.fetchBooks()), [dispatch]);
+    dispatch(fetchBooks());
+  }, [dispatch]);
 
   return (
     <>
+      {isLoading && !error && <b>Books are loaded...</b>}
       <PageHeading text="Books" />
       {/* {books && ( */}
       {books.length > 0 && (

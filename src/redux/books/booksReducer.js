@@ -63,12 +63,20 @@ const booksSlice = createSlice({
     //   };
     // },
     builder
-      .addCase(
-        fetchBooks.fulfilled,
-        (state, { payload }) => (state.entities = payload)
-      )
-      .addCase(fetchBooks.pending, state => (state.isLoading = true));
+      .addCase(fetchBooks.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchBooks.fulfilled, (state, { payload }) => {
+        state.entities = payload;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(fetchBooks.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      });
   },
 });
 
-export default booksSlice.reducer;
+export const booksReducer = booksSlice.reducer;
+// export default booksSlice.reducer;

@@ -9,6 +9,7 @@ export async function fetchAuthors() {
 
 export async function fetchBooks() {
   const { data } = await axios.get(`/books`);
+  console.log(data);
   return data;
 }
 
