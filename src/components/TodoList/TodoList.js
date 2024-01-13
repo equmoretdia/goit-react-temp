@@ -1,14 +1,18 @@
 import Todo from '../Todo';
 import { useSelector, useDispatch } from 'react-redux';
-import { todosOperations, todosSelectors } from '../../redux/todos';
+import {
+  deleteTodo,
+  toggleCompleted,
+} from '../../redux/todos/todos-operations';
+import { getVisibleTodos } from '../../redux/todos/todos-selectors';
 import styles from './TodoList.module.css';
 
 export default function TodoList() {
   const dispatch = useDispatch();
-  const todos = useSelector(todosSelectors.getVisibleTodos);
+  const todos = useSelector(getVisibleTodos);
 
-  const onDeleteTodo = id => dispatch(todosOperations.deleteTodo(id));
-  const onToggleCompleted = id => dispatch(todosOperations.toggleCompleted(id));
+  const onDeleteTodo = id => dispatch(deleteTodo(id));
+  const onToggleCompleted = id => dispatch(toggleCompleted(id));
 
   return (
     <ul className={styles.list}>

@@ -8,7 +8,8 @@ import Stats from '../components/Stats';
 import Modal from '../components/Modal';
 import IconButton from '../components/IconButton';
 import { ReactComponent as AddIcon } from '../icons/add.svg';
-import { todosOperations, todosSelectors } from '../redux/todos';
+import { fetchTodos } from '../redux/todos/todos-operations';
+import { getLoading } from '../redux/todos/todos-selectors';
 
 const barStyles = {
   display: 'flex',
@@ -18,12 +19,12 @@ const barStyles = {
 
 export default function TodosView(params) {
   const dispatch = useDispatch();
-  const isLoadingTodos = useSelector(todosSelectors.getLoading);
+  const isLoadingTodos = useSelector(getLoading);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
-  useEffect(() => dispatch(todosOperations.fetchTodos()), [dispatch]);
+  useEffect(() => dispatch(fetchTodos()), [dispatch]);
 
   return (
     <Container>

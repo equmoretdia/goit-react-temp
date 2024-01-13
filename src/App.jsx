@@ -21,10 +21,10 @@ export default function App() {
       <AppBar />
 
       <Routes>
-        <Route exact path="/" component={HomeView} />
-        <Route path="/register" component={RegisterView} />
-        <Route path="/login" component={LoginView} />
-        <Route path="/todos" component={TodosView} />
+        <Route path="/" element={<HomeView />} />
+        <Route path="/register" element={<RegisterView />} />
+        <Route path="/login" element={<LoginView />} />
+        <Route path="/todos" element={<TodosView />} />
       </Routes>
     </Container>
   );

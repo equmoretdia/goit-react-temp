@@ -1,21 +1,21 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-const getLoading = state => state.todos.loading;
+export const getLoading = state => state.todos.loading;
 
-const getFilter = state => state.todos.filter;
+export const getFilter = state => state.todos.filter;
 
-const getAllTodos = state => state.todos.items;
+export const getAllTodos = state => state.todos.items;
 
-const getTotalTodoCount = state => {
+export const getTotalTodoCount = state => {
   const todos = getAllTodos(state);
   return todos.length;
 };
 
-const getCompletedTodoCount = createSelector([getAllTodos], todos => {
+export const getCompletedTodoCount = createSelector([getAllTodos], todos => {
   return todos.reduce((total, todo) => (todo.completed ? total + 1 : total), 0);
 });
 
-const getVisibleTodos = createSelector(
+export const getVisibleTodos = createSelector(
   [getAllTodos, getFilter],
   (todos, filter) => {
     const normalizedFilter = filter.toLowerCase();

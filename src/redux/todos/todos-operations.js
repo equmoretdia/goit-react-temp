@@ -15,7 +15,7 @@ import {
 } from './todos-actions';
 
 // GET @ /tasks
-const fetchTodos = () => async dispatch => {
+export const fetchTodos = () => async dispatch => {
   dispatch(fetchTodosRequest());
 
   try {
@@ -28,7 +28,7 @@ const fetchTodos = () => async dispatch => {
 };
 
 // POST @ /tasks
-const addTodo = description => dispatch => {
+export const addTodo = description => dispatch => {
   const todo = {
     description,
     completed: false,
@@ -43,7 +43,7 @@ const addTodo = description => dispatch => {
 };
 
 // DELETE @ /tasks/:id
-const deleteTodo = todoId => dispatch => {
+export const deleteTodo = todoId => dispatch => {
   dispatch(deleteTodoRequest());
 
   axios
@@ -53,7 +53,7 @@ const deleteTodo = todoId => dispatch => {
 };
 
 // PATCH @ /tasks/:id
-const toggleCompleted =
+export const toggleCompleted =
   ({ id, completed }) =>
   dispatch => {
     const update = { completed };

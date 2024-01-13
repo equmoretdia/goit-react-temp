@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { todosSelectors, changeFilter } from '../../redux/todos';
+import { getFilter } from '../../redux/todos/todos-selectors';
+import { changeFilter } from '../../redux/todos/todos-actions';
 import styles from './TodoFilter.module.css';
 
 export default function TodoFilter() {
   const dispatch = useDispatch();
-  const value = useSelector(todosSelectors.getFilter);
+  const value = useSelector(getFilter);
 
   return (
     <div className={styles.filter}>

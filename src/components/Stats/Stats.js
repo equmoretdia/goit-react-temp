@@ -1,10 +1,13 @@
 import { useSelector } from 'react-redux';
 import styles from './Stats.module.css';
-import { todosSelectors } from '../../redux/todos';
+import {
+  getTotalTodoCount,
+  getCompletedTodoCount,
+} from '../../redux/todos/todos-selectors';
 
 export default function Stats() {
-  const total = useSelector(todosSelectors.getTotalTodoCount);
-  const completed = useSelector(todosSelectors.getCompletedTodoCount);
+  const total = useSelector(getTotalTodoCount);
+  const completed = useSelector(getCompletedTodoCount);
 
   return (
     <div className={styles.container}>
