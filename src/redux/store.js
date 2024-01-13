@@ -1,10 +1,45 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import  booksReducer  from './books/booksReducer';
-import { booksReducer } from './books/booksReducer';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { todosReducer } from './todos/todos-reducer';
+import { authReducer } from './auth';
+
+// const middleware = [
+//   ...getDefaultMiddleware({
+//     serializableCheck: {
+//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//     },
+//   }),
+// ];
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
 export const store = configureStore({
   reducer: {
-    // books: (state = []) => state,
-    books: booksReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
+    todos: todosReducer,
   },
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  ],
+  devTools: process.env.NODE_ENV === 'development',
 });
+
+export const persistor = persistStore(store);
