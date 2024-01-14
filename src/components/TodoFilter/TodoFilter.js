@@ -9,7 +9,7 @@ export default function TodoFilter() {
 
   return (
     <div className={styles.filter}>
-      <p className={styles.label}>Фильтр по содержимому</p>
+      <p className={styles.label}>Content filter</p>
       <input
         type="text"
         className={styles.input}

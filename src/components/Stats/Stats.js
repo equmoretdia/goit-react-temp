@@ -13,11 +13,11 @@ export default function Stats() {
     <div className={styles.container}>
       <p className={styles.item}>
         <span className={styles.value}>{total}</span>
-        <span className={styles.label}>Всего</span>
+        <span className={styles.label}>Totally</span>
       </p>
       <p className={styles.item}>
         <span className={styles.value}>{completed}</span>
-        <span className={styles.label}>Выполнено</span>
+        <span className={styles.label}>Completed</span>
       </p>
     </div>
   );
