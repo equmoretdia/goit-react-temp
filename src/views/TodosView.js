@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Container from '../components/Container';
 import TodoList from '../components/TodoList';
 import TodoEditor from '../components/TodoEditor';
@@ -8,7 +10,7 @@ import Stats from '../components/Stats';
 import Modal from '../components/Modal';
 import IconButton from '../components/IconButton';
 import { ReactComponent as AddIcon } from '../icons/add.svg';
-import { fetchTodos } from '../redux/todos/todos-operations';
+// import { fetchTodos } from '../redux/todos/todos-operations';
 import { getLoading } from '../redux/todos/todos-selectors';
 
 const barStyles = {
@@ -17,25 +19,25 @@ const barStyles = {
   marginBottom: 20,
 };
 
-export default function TodosView(params) {
-  const dispatch = useDispatch();
+export const TodosView = params => {
+  // const dispatch = useDispatch();
   const isLoadingTodos = useSelector(getLoading);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
-  useEffect(() => dispatch(fetchTodos()), [dispatch]);
+  // useEffect(() => dispatch(fetchTodos()), [dispatch]);
 
   return (
     <Container>
       <div style={barStyles}>
         <Filter />
         <Stats />
-        <IconButton onClick={toggleModal} aria-label="Добавить todo">
+        <IconButton onClick={toggleModal} aria-label="Add photo">
           <AddIcon width="40" height="40" fill="#fff" />
         </IconButton>
 
-        {isLoadingTodos && <h1>Загружаем...</h1>}
+        {isLoadingTodos && <h1>Loading...</h1>}
       </div>
 
       <TodoList />
@@ -47,4 +49,4 @@ export default function TodosView(params) {
       )}
     </Container>
   );
-}
+};

@@ -10,7 +10,7 @@ export default function Todo({ text, completed, onToggleCompleted, onDelete }) {
       />
       <p className={styles.text}>{text}</p>
       <button type="button" className={styles.button} onClick={onDelete}>
-        Удалить
+        Delete
       </button>
     </>
   );

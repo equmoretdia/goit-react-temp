@@ -22,7 +22,7 @@ class TodoEditor extends Component {
       return;
     }
 
-    alert('Заполни текст заметки.');
+    alert("Please fill in note's text.");
   };
 
   render() {
@@ -34,7 +34,7 @@ class TodoEditor extends Component {
           onChange={this.handleChange}
         ></textarea>
         <button type="submit" className={styles.button}>
-          Сохранить
+          Save
         </button>
       </form>
     );

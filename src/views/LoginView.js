@@ -13,7 +13,7 @@ const styles = {
   },
 };
 
-export default function LoginView() {
+export const LoginView = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,11 +38,11 @@ export default function LoginView() {
 
   return (
     <div>
-      <h1>Страница логина</h1>
+      <h1>Login page</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          Почта
+          Email
           <input
             type="email"
             name="email"
@@ -52,7 +52,7 @@ export default function LoginView() {
         </label>
 
         <label style={styles.label}>
-          Пароль
+          Password
           <input
             type="password"
             name="password"
@@ -61,8 +61,8 @@ export default function LoginView() {
           />
         </label>
 
-        <button type="submit">Войти</button>
+        <button type="submit">Sign in</button>
       </form>
     </div>
   );
-}
+};
